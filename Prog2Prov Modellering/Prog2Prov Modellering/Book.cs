@@ -13,8 +13,9 @@ namespace Prog2Prov_Modellering
         private int rarity;
         private string category;
         private int actualValue;
-        private bool cursed = false;
+        private bool cursed;
         Random generator = new Random();
+        //skriver ut namnet och värdet på boken, samt hur sällsynt den är
         public void PrintInfo()
         {
             Console.WriteLine(name);
@@ -26,15 +27,17 @@ namespace Prog2Prov_Modellering
         {
             return category;
         }
+        //tar emot bokens namn
         public string GetName()
         {
             name = Console.ReadLine();
             return name;
         }
+        //värdesätter boken baserad på slumpmässig kostnad och sällsynthet
         public int Evaluate()
         {
-            actualValue = generator.Next(10, 100);
-            rarity = generator.Next(1, 4);
+            
+            
             actualValue *= rarity;
             /*double multiplier = generator.NextDouble(0.5 , 1.5);
             int newMultiplier = Convert.ToInt32(multiplier);
@@ -42,6 +45,7 @@ namespace Prog2Prov_Modellering
             return actualValue;
 
         }
+        //slumpar fram om boken är cursed eller inte
         public bool IsCursed()
         {
             int cursingPower = generator.Next(0, 11);
@@ -57,6 +61,24 @@ namespace Prog2Prov_Modellering
                 Console.WriteLine("This book is cursed");
             }
             return cursed;
+        }
+        //metod som beräknar alla värden på book
+        public Book()
+        {
+            actualValue = generator.Next(10, 100);
+            rarity = generator.Next(1, 4);
+            int cursing = generator.Next(0, 1);
+            if (cursing == 0)
+            {
+                cursed = false;
+
+            }
+            else
+            {
+                cursed = true;
+            }
+            int book = generator.Next(0, 3);
+            
         }
     }
     

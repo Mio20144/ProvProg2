@@ -10,15 +10,21 @@ namespace Prog2Prov_Modellering
     {
         static void Main(string[] args)
         {
-
+            //skapar en ny bok
             Book b1 = new Book();
-            List<string> names = new List<string>();
-            Console.WriteLine("Please enter the book you are looking for");
+            //skapar en ny kund
+            Customer c1 = new Customer();
+            //Lista med tillgängliga böcker
+            List<string> books = new List<string>() { "Harry potter", "The Bible", "Guinnes book of world records" };
+            //Lista med kategorier
+            List<string> category = new List<string>() { "Fantasy", "Religious", "Fun Facts" };
+            Console.WriteLine("Here is a book for you");
             b1.GetName();
             b1.Evaluate();
-            
             b1.PrintInfo();
             b1.IsCursed();
+
+            c1.CanAfford();
 
             Console.ReadLine();
             
